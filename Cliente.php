@@ -53,15 +53,9 @@ Class Cliente{
         $this->numDoc = $nuevoNumDoc;
     }
 
-    public function esCliente(){
-        $habilitadoCompra = false;
-        if($this->getAltaCliente() != $habilitadoCompra){
-            $habilitadoCompra = true; 
-            
-        }
-        
-        return $habilitadoCompra;
-    }
+
+
+
 
     public function __toString()
     {

@@ -64,26 +64,21 @@ Class Moto {
 
 
     public function darPrecioVenta(){
-        $precioCompra = $this->getCostoMoto();
-        $anioFab = $this->getAnioFabricacion();
-        $anio = 2024 - $anioFab;
-        $porcAnual = $this->getPorIncAnual();
-
-        if ($this->getDisponible() == true){
-            $venta = $precioCompra + $precioCompra * ($anio * $porcAnual);
+        $valida = $this->getDisponible();
+        $_venta = 0;
+        $_compra = $this->getCostoMoto();
+        $anio = date("Y") - $this->getAnioFabricacion();
+        $por_inc_anual = $this->getPorIncAnual();
+        if($valida == true ){
+            $_venta = $_compra + $_compra * ($anio * $por_inc_anual);
         }else{
-            $venta = -1;
+            $_venta = -1;
         }
+        return $_venta;
 
-        return $venta;
     }
-    // public function hayStock(){
-    //     $disponible = $this->getDisponible();
-    //     $valor= -1;
-    //     if($disponible == true){
-    //         $valor = 
-    //     }
-    // }
+
+
 
     public function __toString()
     {
@@ -93,6 +88,7 @@ Class Moto {
         "Sus caracteristicas Son: " . $this->getDescripcion() ."\n" .
         "Su valor aumenta un " . $this->getPorIncAnual() . "% " . "\n" . 
         "Disponible?: " . $this->getDisponible( ) . "\n";
+        
     }
 
 
